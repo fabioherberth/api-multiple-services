@@ -18,17 +18,14 @@ public class PersonService {
         return personRepository.save(user);
     }
 
-    // Get all users
     public List<Person> getAllPeople() {
         return personRepository.findAll();
     }
 
-    // Get user by ID
     public Optional<Person> getPersonById(Long id) {
         return personRepository.findById(id);
     }
 
-    // Update user
     public Person updatePerson(Long id, Person personDetails) {
         Optional<Person> person = personRepository.findById(id);
         if (person.isPresent()) {
@@ -41,13 +38,11 @@ public class PersonService {
         return null;
     }
 
-    // Delete all users
     public void deleteAllPeople() {
         personRepository.deleteAll();
     }
 
-    // Delete user
-    public void deleteUser(Long id) {
+    public void deletePerson(Long id) {
         personRepository.deleteById(id);
     }
 
