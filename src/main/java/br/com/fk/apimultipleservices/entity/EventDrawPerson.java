@@ -1,26 +1,26 @@
 package br.com.fk.apimultipleservices.entity;
 
 import jakarta.persistence.*;
+import lombok.Builder;
 import lombok.Getter;
 import lombok.NoArgsConstructor;
 import lombok.Setter;
-import lombok.ToString;
 
 @Getter
 @Setter
 @NoArgsConstructor
-@ToString
 @Entity
-@Table(name = "person")
-public class Person {
+@Table(name = "event_draw_person")
+public class EventDrawPerson {
+
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long id;
 
-    private String name;
+    @ManyToOne
+    private Person person;
 
-    private String telephone;
-
-    private Boolean isVisitor;
+    @ManyToOne
+    private EventDayPerson eventDayPerson;
 
 }

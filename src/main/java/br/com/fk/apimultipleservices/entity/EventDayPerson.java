@@ -4,23 +4,26 @@ import jakarta.persistence.*;
 import lombok.Getter;
 import lombok.NoArgsConstructor;
 import lombok.Setter;
-import lombok.ToString;
+
+import java.util.Date;
 
 @Getter
 @Setter
 @NoArgsConstructor
-@ToString
 @Entity
-@Table(name = "person")
-public class Person {
+@Table(name = "event_day_person")
+public class EventDayPerson {
+
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long id;
 
-    private String name;
+    private Date eventDay;
 
-    private String telephone;
+    @ManyToOne
+    private Event event;
 
-    private Boolean isVisitor;
+    @ManyToOne
+    private Person person;
 
 }
